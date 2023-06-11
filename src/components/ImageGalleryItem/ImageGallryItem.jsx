@@ -1,4 +1,5 @@
 import css from "./imageGalleryItem.module.css"
+import PropTypes from 'prop-types';
 
 export default function ImageGalleryItem({ imagesList, onImageClick }) {
     return (
@@ -11,3 +12,13 @@ export default function ImageGalleryItem({ imagesList, onImageClick }) {
     )
 };
 
+
+ImageGalleryItem.propTypes = {
+    imagesList: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        webformatURL: PropTypes.string,
+        tags: PropTypes.string,
+    }),
+    ),
+    onImageClick: PropTypes.func,
+}

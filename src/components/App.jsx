@@ -1,26 +1,22 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
 
-export default class App extends Component{
-  state = {
-    query: '',
-  }
 
-  handleFormSubmit = query => {
-    this.setState({query})
+export default function App() {
+  const [query, setQuery] = useState('')
+
+    function handleFormSubmit(query){
+    setQuery(query)
   };
-
-  render() {
-    return (
+  
+  return (
       <>
-        <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery query={this.state.query} />
+        <Searchbar onSubmit={handleFormSubmit} />
+        <ImageGallery query={query} />
         <ToastContainer/>
       </>
     )
-  }
 }
   
